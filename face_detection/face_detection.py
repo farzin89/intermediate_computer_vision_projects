@@ -13,9 +13,10 @@ while True:
     faces = model.detectMultiScale(gray,scaleFactor = 1.5,minNeighbors = 5)
 
     for face in faces:
-        x1,y1,w,h = face
-        img = cv2.rectangle(frame,(x1,y1),(x1 + w, y1 + h),(0,255,0),10)
+        x,y,w,h = face
+        img = cv2.rectangle(frame,(x,y),(x + w, y + h),(0,255,0),10)
 
+        cv2.putText(frame,'face',(x,y-15),cv2.FONT_HERSHEY_COMPLEX,1,(150,150,50),2)
 
 
 
