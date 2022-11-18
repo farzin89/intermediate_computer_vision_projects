@@ -10,7 +10,6 @@ while True:
 
     ret,frame = cap.read()
 
-    cv2.imshow('webcam',frame)
 
     qr_info = decode(frame)
 
@@ -20,7 +19,11 @@ while True:
         data = qr.data
         rect = qr.rect
         polygon = qr.polygon
-        
+
+        frame = cv2.rectangle(frame,(rect.left,rect.top),(rect.left + rect.width,rect.top + rect.height),(0,255,0),5)
+        frame = cv2.polylines(frame,[np.array(polygon)],True,(255,0,0),5)
+
+    cv2.imshow('webcam',frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
