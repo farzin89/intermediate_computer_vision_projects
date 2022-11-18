@@ -12,6 +12,16 @@ while True:
 
     cv2.imshow('webcam',frame)
 
+    qr_info = decode(frame)
+
+    if len(qr_info) > 0:
+
+        qr = qr_info[0]
+        data = qr.data
+        rect = qr.rect
+        polygon = qr.polygon
+        
+
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 cap.release()
