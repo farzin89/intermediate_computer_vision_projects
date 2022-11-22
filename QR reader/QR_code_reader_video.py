@@ -20,7 +20,7 @@ while True:
         rect = qr.rect
         polygon = qr.polygon
 
-        cv2.putText(frame,data.decode(),(rect.left,rect.top),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
+        cv2.putText(frame,data.decode(),(rect.left,rect.top - 15),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),3)
         frame = cv2.rectangle(frame,(rect.left,rect.top),(rect.left + rect.width,rect.top + rect.height),(0,255,0),5)
         frame = cv2.polylines(frame,[np.array(polygon)],True,(255,0,0),5)
 
